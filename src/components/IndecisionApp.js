@@ -6,28 +6,23 @@ import Action from './Action';
 import Header from './Header';
 
 class IndecisionApp extends React.Component {
-    constructor(props) {
-      super(props);
-      this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
-      this.handlePick = this.handlePick.bind(this);
-      this.handleAddOption = this.handleAddOption.bind(this);
-      this.state = {
-        options: []
-      };
-    }
-    handleDeleteOptions() {
+  state = {
+    options: []
+  };
+
+    handleDeleteOptions = () => {
       this.setState(() => {
         return {
           options: []
         };
       });
     }
-    handlePick() {
+    handlePick = () => {
       const randomNum = Math.floor(Math.random() * this.state.options.length);
       const option = this.state.options[randomNum];
       alert(option);
-    }
-    handleAddOption(option) {
+    };
+    handleAddOption = (option) => {
       if (!option) {
         return 'Enter valid value to add item';
       } else if (this.state.options.indexOf(option) > -1) {
@@ -39,9 +34,9 @@ class IndecisionApp extends React.Component {
           options: prevState.options.concat(option)
         };
       });
-    }
+    };
     render() {
-      const title = 'Indecision test';
+      const title = 'Indecision test --';
       const subtitle = 'Put your life in the hands of a computer';
   
       return (
@@ -60,7 +55,7 @@ class IndecisionApp extends React.Component {
           />
         </div>
       );
-    }
+    };
   }
 
   export default IndecisionApp;
